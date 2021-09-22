@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap');
+
+/* Global Styles */
+
+body, h1, h2, p, ul, li, a, blockquote {
+    margin: 0px;
+    padding: 0px;
+}
+  
+  body {
+    font-family: 'Spartan', sans-serif;
+    background-image: url('images/bg-pattern-top-desktop.svg'), url(images/bg-pattern-bottom-desktop.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: top, bottom;
+    background-position-x: left, right;
+    background-size: 40%, 90%;
+  }
+
+  h1 {
+      font-size: 3rem;
+      color: #502050;
+      margin-bottom: 20px;
+  }
+
+  p {
+      line-height: 1.6;
+  }
+
+  blockquote {
+      line-height: 1.6;
+      color: hsl(300, 24%, 96%);
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Structure */
+
+  #structure {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(1fr, auto));
+      grid-template-areas: 
+        "header header header"
+        "colton irene  anne"
+        "footer footer footer"
+      ;
+      grid-template-rows: auto minmax(370px, auto);
+      padding: 50px calc((100% - 1300px) / 2);
+      margin: 0 20px;
+      gap: 40px;
+  }
+
+  /* header */
+
+  header {
+     grid-column: 1 / -1;
+     display: grid;
+     grid-template-areas: 
+        "title stars stars"
+     ;
+     margin-bottom: 70px;
+  }
+
+  #title {
+      grid-area: title;
+  }
+
+  #title p {
+      max-width: 480px;
+      color: #937b92
+      ;
+  }
+
+  #stars {
+      grid-area: stars;
+      display: flex;
+      flex-flow: column wrap;
+  }
+
+  #stars ul {
+      margin-top: 20px;
+      color: #502050;
+      font-weight: bold;
+  }
+
+  #stars ul li img + img {
+    margin-left: 10px;
+  }
+
+  #stars ul:first-child {
+    align-self: flex-start;
+  }
+
+  #stars ul:nth-child(2) {
+      align-self: center;
+  }
+
+  #stars ul:nth-child(3) {
+      align-self: flex-end;
+  }
+
+  .bg-stars {
+      display: flex;
+      background-color: #f7f2f7;
+      padding: 20px 40px;
+      border-radius: 8px;
+      flex-wrap: wrap;
+  }
+
+  .bg-stars li + li {
+      margin-left: 30px;
+  }
+
+  /* Class */
+
+  .card {
+     background-color: #502050;
+     border-radius: 8px;
+     padding: 40px;
+  }
+
+  .picture-name {
+     display: flex;
+     align-items: center;
+     margin-bottom: 30px;
+  }
+
+  .picture-name ul + ul {
+     margin-left: 30px;
+  }
+
+  .picture img{
+     max-width: 48px;
+     border-radius: 50%;
+  }
+
+  .name li:first-child{
+     color: #ffffff;
+  }
+
+  .name li:nth-child(2) {
+     color: hsl(333, 80%, 67%);
+  }
+
+  .name li + li {
+      margin-top: 5px;
+  }
+
+  /* Colton */
+
+  #colton {
+      grid-area: colton;
+      align-self: start;
+  }
+
+  /* Irene */
+
+  #irene {
+      grid-area: irene;
+      align-self: center;
+  }
+
+  /* Anne */
+
+  #anne {
+      grid-area: anne;
+      align-self: end;
+  }
+
+  /* Footer */
+
+  #footer {
+      grid-area: footer;
+      text-align: center;
+  }
+
+  @media (max-width: 1024px) {
+    header {
+        grid-template-areas: 
+            "title"
+            "stars"
+        ;
+    }
+
+    #title {
+        justify-self: center;
+        text-align: center;
+    }
+
+    #stars ul:nth-child(n) {
+        align-self: center;
+    }
+
+  }
+
+  @media (max-width: 824px) {
+    #structure {
+        grid-template-areas: 
+            "header"
+            "colton"
+            "irene"
+            "anne"
+            "footer"
+        ;
+        grid-template-rows: auto;
+        gap: 20px;
+    }
+
+    header {
+        margin-bottom: 0;
+    }
+
+    #colton, #irene, #anne {
+        align-self: center;
+    }
+
+    .bg-stars {
+        justify-content: center;
+    }
+
+  }
+
+  @media (max-width: 541px) {
+    .bg-stars li + li {
+        margin-top: 15px;
+        margin-left: 0;
+    }
+    
+    .bg-stars li:first-child {
+        margin: 0 30px;
+    }
+  }
